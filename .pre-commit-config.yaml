@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+  - repo: https://github.com/lycheeverse/lychee.git
+    rev: v0.15.1
+    hooks:
+      - id: lychee
+        # Optionally include additional CLI arguments
+        args: ["--no-progress", "--exclude-path", "node_modules", "--exclude-path", "public/admin"]
+  - repo: local
+    hooks:
+      - id: run-check-script
+        name: run-check-script
+        entry: pnpm
+        args: ['run', 'check']
+        language: system
+        pass_filenames: false
+      # Note: This hook modifies files, which pre-commit doesn't allow by default.
+      # If you encounter errors like "files were modified by this hook", you can:
+      # 1. Run the structure script manually: pnpm run structure
+      # 2. Add the modified files to your commit: git add docs/structure.md
+      # 3. Continue with the commit
+      - id: run-structure-script
+        name: run-structure-script
+        entry: pnpm
+        args: ['run', 'structure']
+        language: system
+        pass_filenames: false
+        always_run: true
+        fail_fast: false

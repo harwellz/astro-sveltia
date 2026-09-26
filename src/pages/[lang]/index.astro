@@ -1,0 +1,139 @@
+---
+import { type Lang, LOCALES, useTranslations } from "@/i18n";
+import Layout from "@/layouts/Base.astro";
+
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import heroImageAr from "@/assets/ar/hero.svg";
+import heroImageEn from "@/assets/en/hero.svg";
+import heroImageEs from "@/assets/es/hero.svg";
+import heroImageJa from "@/assets/ja/hero.svg";
+import heroImageZhCn from "@/assets/zh-cn/hero.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang },
+	}));
+---
+
+<Layout>
+  <Image
+    src={locale === "ja"
+      ? heroImageJa
+      : locale === "zh-cn"
+        ? heroImageZhCn
+        : locale === "ar"
+          ? heroImageAr
+          : locale === "es"
+            ? heroImageEs
+            : heroImageEn}
+    alt={t("hi")}
+    loading="eager"
+  />
+
+  <p>
+    <em>
+      {t("intro")}
+    </em>
+  </p>
+
+  <p>
+    <a
+      href={`https://docs.astro.build/${locale}/guides/internationalization/`}
+      target="_blank"
+    >
+      Internationalization (i18n) Routing | Astro Docs
+      <span class="material-icons-sharp dir">open_in_new</span>
+    </a>
+  </p>
+
+  <p>
+    {t("url.description")}
+  </p>
+
+  <ul>
+    <li>example.com/en/</li>
+    <li>example.com/ja/</li>
+  </ul>
+
+  <h2>
+    {t("feature")}
+  </h2>
+
+  <ul>
+    <li>
+      {t("feature.astro.i18n")}
+    </li>
+    <li>
+      {t("feature.multilingual")}
+    </li>
+    <li>Vanilla CSS</li>
+    <li>
+      {t("feature.seo")}
+    </li>
+    <li>
+      {t("feature.performance")}
+    </li>
+  </ul>
+
+  <h2>
+    {t("getting.started")}
+  </h2>
+
+  <p>
+    {t("getting.started.description")}
+  </p>
+
+  <p>
+    <a href="https://docs.astro.build/" target="_blank">
+      https://docs.astro.build/
+      <span class="material-icons-sharp dir">open_in_new</span>
+    </a>
+  </p>
+
+  <p>
+    {t("getting.started.cta")}
+  </p>
+
+  <p>
+    <a href={getRelativeLocaleUrl(locale, "setup")} class="start">
+      <span class="material-icons-sharp dir">arrow_forward</span>
+      {t("start.setup")}
+    </a>
+  </p>
+</Layout>
+
+<style>
+  ul {
+    margin-block-start: var(--sp-s);
+    list-style: disc;
+    padding-inline-start: 1em;
+  }
+
+  h2 {
+    color: var(--color-theme);
+    margin-block-start: var(--sp-l);
+  }
+
+  em {
+    display: block;
+    font-style: normal;
+    font-size: 1.3em;
+    margin-block-end: var(--sp-m);
+  }
+
+  .start {
+    display: block;
+    width: fit-content;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background: var(--color-main);
+    color: var(--color-base);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+</style>
