@@ -19,7 +19,7 @@
 			"!**/out",
 			"!**/public",
 			"!**/.vscode",
-			"!**/.claude",
+			"!.claude",
 			"!skills-lock.json"
 		]
 	},
