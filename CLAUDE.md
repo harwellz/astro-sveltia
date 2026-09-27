@@ -6,7 +6,7 @@ Personal blog/site built from the open-source template `yacosta738/astro-cms`, b
 ## Stack (current state — update this section when a phase changes it)
 
 - **Astro 5** static site (SSG, no adapter) → output `dist/`. Target after Phase 3: Astro 7.
-- **Content Collections** in `src/content.config.ts` (`blog`, `tags`, `categories`, `authors`), files in `src/data/<collection>/<lang>/...`. References use ids like `en/john-doe`.
+- **Content Collections** in `src/content.config.ts` (`blog`, `tags`, `categories`, `authors`), files in `src/data/<collection>/<lang>/...`. References use ids like `en/meganode`.
 - **Sveltia CMS** at `/admin` (`src/pages/admin.astro`), config `public/admin/config.yml`. Commits content to GitHub through an OAuth Worker.
 - **i18n**: Astro i18n routing. *Now*: every URL prefixed `/<lang>/`, default `en`. *Target after PLAN P2.5*: default `vi` served at `/` **without prefix**, other locales (`en es ja zh-cn ar`) prefixed; routes live in `src/pages/[...lang]/` with `lang: undefined` for `vi`. Locales in `src/i18n/locales.ts`; UI strings in `src/i18n/translations/*.ts`; helpers `useTranslations`, `getLocalePaths`, `localeParams` in `src/i18n/i18n.ts`, re-exported from `@/i18n`.
 - **Styling**: vanilla CSS with nesting + custom properties in `src/styles/*.css` and component `<style>` blocks. No Tailwind unless `DESIGN.md` decides otherwise.
