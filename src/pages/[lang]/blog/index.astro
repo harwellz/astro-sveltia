@@ -4,13 +4,12 @@ import { getCollection, getEntries, getEntry } from "astro:content";
 import PageHeadline from "@/components/PageHeadline.astro";
 import { type Lang, LOCALES, useTranslations } from "@/i18n";
 import Layout from "@/layouts/Base.astro";
+import { selectPosts } from "@/lib/content";
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale);
 
-const posts = (await getCollection("blog"))
-	.filter((post) => post.id.split("/")[0] === locale)
-	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const posts = selectPosts(await getCollection("blog"), locale);
 
 const title = t({
 	ja: "ブログ",
