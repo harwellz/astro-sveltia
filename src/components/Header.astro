@@ -1,14 +1,12 @@
 ---
 // Header & Navigation UI displayed on each page.
 
-import { Image } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LocaleSelect from "@/components/i18n/LocaleSelect.astro";
+import { BRAND_NAME } from "@/consts";
 import { type Lang, useTranslations } from "@/i18n";
 
 const t = useTranslations(Astro.currentLocale as Lang);
-
-import AstroImage from "@/assets/astro-logo.svg";
 
 const locale = Astro.currentLocale as Lang;
 
@@ -19,8 +17,7 @@ const isActive = (path: string) =>
 <header class="l-header">
   <h1 dir="ltr">
     <a href={getRelativeLocaleUrl(locale, "/")}>
-      <Image src={AstroImage} alt="Astro" />
-      i18n Starter
+      {t(BRAND_NAME)}
     </a>
   </h1>
 
@@ -48,8 +45,9 @@ const isActive = (path: string) =>
 
       <li>
         <a
-          href="https://github.com/yacosta738/astro-cms"
+          href="https://github.com/harwellz/astro-sveltia"
           target="_blank"
+          rel="noopener noreferrer"
         >
           GitHub
           <span class="material-icons-sharp dir">open_in_new</span>
@@ -84,11 +82,6 @@ const isActive = (path: string) =>
     a {
       display: flex;
       align-items: center;
-    }
-    img {
-      width: 6em;
-      position: relative;
-      inset: 0.1em;
     }
   }
 

@@ -1,12 +1,17 @@
 ---
 // Footer UI displayed on each page.
 import LocalesHomeList from "@/components/i18n/LocalesHomeList.astro";
+import { BRAND_NAME } from "@/consts";
+import { type Lang, useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale as Lang);
 ---
 
 <footer class="l-footer l-content">
   <a
-    href="https://github.com/yacosta738/astro-cms"
+    href="https://github.com/harwellz/astro-sveltia"
     target="_blank"
+    rel="noopener noreferrer"
     class="github"
   >
     GitHub
@@ -17,8 +22,14 @@ import LocalesHomeList from "@/components/i18n/LocalesHomeList.astro";
     <LocalesHomeList />
   </ul>
 
-  <a class="copy" href="https://hira.page/" target="_blank" dir="ltr">
-    © Your Brand {new Date().getFullYear()}.
+  <a
+    class="copy"
+    href="https://github.com/harwellz"
+    target="_blank"
+    rel="noopener noreferrer"
+    dir="ltr"
+  >
+    © {t(BRAND_NAME)} {new Date().getFullYear()}.
   </a>
 </footer>
 

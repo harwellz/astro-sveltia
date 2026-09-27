@@ -1,35 +1,40 @@
-# Astro i18n Starter
+# meganode
 
-```sh
-npm create astro@latest -- --template yacosta738/astro-cms
+> scale your ideas
+
+Personal site, portfolio and multilingual blog of a developer working across IT hardware and networking, digital marketing, data analytics and web3.
+
+- GitHub: [harwellz](https://github.com/harwellz)
+- X: [@harwellzz](https://x.com/harwellzz)
+- Domain (not live yet): meganode.org
+
+## Stack
+
+- [Astro](https://astro.build) static site with Content Collections (`blog`, `tags`, `categories`, `authors`) in `src/data/`
+- [Sveltia CMS](https://github.com/sveltia/sveltia-cms) at `/admin`, committing content to GitHub
+- Astro i18n routing — locales in `src/i18n/locales.ts`, UI strings in `src/i18n/translations/`
+- Vanilla CSS (nesting + custom properties)
+- pnpm, Node 24, TypeScript strict, Biome, Vitest
+- Hosting: Cloudflare Workers static assets
+
+## Commands
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev                 # http://localhost:4321
+pnpm build               # astro check + astro build
+pnpm test                # vitest run
+pnpm biome ci .          # lint + format check (read-only)
+pnpm biome check --write .   # auto-fix
+pnpm preview             # serve dist/
 ```
 
-[![Logo Image](docs/hero.svg)](https://astro-cms-dpv.pages.dev/ "See document")
+## Project docs
 
-i18n Starter is a simple [Astro](https://astro.build) theme for creating multilingual websites.
+- [`PLAN.md`](PLAN.md) — roadmap, current phase and task list
+- [`CLAUDE.md`](CLAUDE.md) — conventions for contributors and agents
+- [`Overview.md`](Overview.md) — background
 
-It supports [i18n routing in Astro v4.0](https://docs.astro.build/en/guides/internationalization/).
+## License
 
-It only supports the subdirectory URL format. Each language is managed with a URL like the following. The root URL will redirect to the specified default language.
-
-- example.com/en/
-- example.com/ja/
-
-## Features
-
-- [x] Support for Astro's official i18n functionality
-- [x] Various methods for managing multilingual pages
-- [x] Vanilla CSS
-- [x] SEO-friendly
-
-## Lighthouse Score
-
-[![All scores are 100.](docs/lighthouse.png)](https://pagespeed.web.dev/analysis/https-astro-cms-dpv-pages-dev-en/k084o13741?form_factor=mobile "Check score")
-
-## Documentation
-
-This theme is self-documented, and the pages within this theme can be considered as documentation.
-
-Install and preview locally or check out the sample site below.
-
-<https://astro-cms-dpv.pages.dev/>
+[MIT](LICENSE). Originally based on an open-source Astro i18n CMS starter; see `LICENSE` for the original copyright notice.
