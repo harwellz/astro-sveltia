@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # agent skill sources (vendored copies live in .claude/skills/)
 .agents/
+
+# wrangler local dev state
+.wrangler/
