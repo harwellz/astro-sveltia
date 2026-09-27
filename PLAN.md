@@ -183,7 +183,7 @@ Mục tiêu: pipeline chạy được **trước** khi sửa code, để mọi p
   - Lọc `draft` + sắp xếp mới → cũ ở `src/pages/[lang]/blog/index.astro:11-13`. → `fix(blog): hide drafts and sort newest first on index`
   - `/android-chrome.png` → `/android-icon.png` trong `Base.astro`, `pages/index.astro`. → `fix(seo): correct android icon path`
   - `vitest.setup.ts`: bỏ `vi.stubGlobal("import.meta")`, dùng `vi.stubEnv`. → `test: use stubEnv for import.meta.env`
-- [ ] 🤖 **P2.9** `.npmrc`: bỏ `shamefully-hoist` và `strict-peer-dependencies=false`, chạy `pnpm install`, sửa import thiếu nếu có. → `build(deps): stop hoisting dependencies`
+- [x] 🤖 **P2.9** `.npmrc`: bỏ `shamefully-hoist` và `strict-peer-dependencies=false`, chạy `pnpm install`, sửa import thiếu nếu có. → `build(deps): stop hoisting dependencies`
 
 **Xong khi:** build/test/biome xanh; grep danh tính cũ rỗng; preview không còn trang demo; không còn draft trong danh sách. Release → tag `v0.2.0`.
 
