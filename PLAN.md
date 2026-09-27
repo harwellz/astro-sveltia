@@ -169,7 +169,7 @@ Mục tiêu: pipeline chạy được **trước** khi sửa code, để mọi p
 ### Phase 2 — Cleanup & sửa bug &nbsp;·&nbsp; branch: `phase/2-cleanup` &nbsp;·&nbsp; độ phức tạp: Trung bình &nbsp;·&nbsp; cần **D1**
 
 - [x] 🤖 **P2.1** Xoá file meta của template: `.github/FUNDING.yml`, `SECURITY.md`, `.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md`, `biome_comment.patch`, `docs/`, script `structure` trong `package.json`, `.pre-commit-config.yaml`, `.devcontainer/`. → `chore(cleanup): remove template meta files`
-- [ ] 🤖 **P2.2** Xoá workflow thừa: `cleanup.yml`, `image-actions.yml`, `pagespeed-insights.yml`, `links.yml` + `lychee.toml`, `.lycheeignore`. Giữ `codeql.yml`, `ci.yml`. → `ci: remove template-specific workflows`
+- [x] 🤖 **P2.2** Xoá workflow thừa: `cleanup.yml`, `image-actions.yml`, `pagespeed-insights.yml`, `links.yml` + `lychee.toml`, `.lycheeignore`. Giữ `codeql.yml`, `ci.yml`. → `ci: remove template-specific workflows`
 - [ ] 🤖 **P2.3** Xoá trang demo: `src/pages/[lang]/monolingual.astro`, `src/pages/<lang>/{setup,page,feature}.mdx`, các mục menu tương ứng trong `Header.astro`, component chỉ trang demo dùng (`LocaleSelectSingle.astro` nếu không còn ai import), `OptimizedPicture.astro`. Kiểm tra: `pnpm build`, grep không còn import tới file đã xoá. → `chore(cleanup): remove template documentation pages`
 - [ ] 🤖 **P2.4** Xoá asset không dùng: 3 ảnh trong `src/assets/images/` không được tham chiếu (DALL·E…, `cloudflare-vs-laliga-2.webp`, `photo-1601987077677-…avif`), `src/assets/symbol.svg`. → `chore(assets): remove unused images`
 - [ ] 🤖 **P2.5** (D1) **Thêm `vi` làm locale mặc định không prefix** — chạy SAU P2.1–P2.4, P2.6–P2.8 (đụng cùng file). Chia commit:
