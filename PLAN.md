@@ -56,11 +56,11 @@ Làm **trước Phase 1**, trừ khi có ghi chú khác. Mục 🧑 cần tài k
 - [ ] 🧑 **L1** Node 24 (`node -v` → hiện là 24.21 ✅). Chạy `corepack enable` để pnpm tự đúng version theo `packageManager`.
 - [ ] 🧑 **L2** `gh auth login` rồi `gh auth status` báo đã login vào `github.com` với quyền `repo`, `workflow`.
 - [ ] 🧑 **L3** Kiểm tra danh tính commit: `git config user.name` / `user.email` (hiện: `ilumi <pphan720@gmail.com>`).
-- [ ] 🤖 **L4** Thêm `.gitattributes` (`* text=auto eol=lf`, ảnh `binary`) — hiện `core.autocrlf=true` và Biome dùng LF → `biome ci` có thể fail. *(Task P0.3)*
+- [x] 🤖 **L4** Thêm `.gitattributes` (`* text=auto eol=lf`, ảnh `binary`) — hiện `core.autocrlf=true` và Biome dùng LF → `biome ci` có thể fail. *(Task P0.3)*
 
 ### 3.2 GitHub
 
-- [ ] 🤖 **G1** Tạo branch `dev` từ `main` và push. *(Task P0.6)*
+- [x] 🤖 **G1** Tạo branch `dev` từ `main` và push. *(Task P0.6)*
 - [ ] 🧑 **G2** Đóng/xoá 2 branch bot cũ trên remote: `dependabot/github_actions/all-actions-*`, `dependabot/npm_and_yarn/all-npm-*` (`git push origin --delete <branch>`).
 - [ ] 🧑 **G3** Settings → General: bật **Automatically delete head branches**; bật **Allow merge commits** (dùng cho release PR `dev → main`); tuỳ chọn tắt squash/rebase để lịch sử thống nhất.
 - [ ] 🧑 **G4** Settings → Rules → Rulesets, **sau khi Phase 1 đã có CI chạy ít nhất 1 lần** (để status check hiện ra trong danh sách):
@@ -142,12 +142,12 @@ Mỗi phase ghi: branch · task (mã, file, cách kiểm tra, commit message) ·
 
 Lý do commit thẳng vào `main`: chưa có `dev`, CI hay branch protection; đây là commit khởi tạo quy ước.
 
-- [ ] 🤖 **P0.1** Commit `Overview.md`, `CLAUDE.md`, `PLAN.md`. → `docs(agents): add overview, shared agent rules and plan`
-- [ ] 🤖 **P0.2** (D7) Thay symlink `.claude/skills/*` bằng thư mục thật (copy từ `.agents/skills/*`), thêm `.agents/` vào `.gitignore`, commit `.claude/skills/`, `.claude/settings.json`, `skills-lock.json`. Kiểm tra: `git ls-files -s .claude/skills | grep -c ^120000` = 0 (không còn symlink). → `chore(agents): vendor taste skills as regular files`
-- [ ] 🤖 **P0.3** Thêm `.gitattributes` (`* text=auto eol=lf`; `*.png *.jpg *.webp *.avif *.ico binary`), chạy `git add --renormalize .`, kiểm tra `pnpm biome ci .`. → `chore: enforce lf line endings`
-- [ ] 🤖 **P0.4** Tạo khung `prompts/images/` (xem §6): `README.md`, `_TEMPLATE.md`, thư mục `brand/`, `references/`, `assets/` (mỗi thư mục có `.gitkeep`) và `design/references/.gitkeep`. → `docs(assets): add image prompt workflow`
-- [ ] 🤖 **P0.5** Baseline: `pnpm install --frozen-lockfile && pnpm build && pnpm test`; ghi kết quả (pass/fail, thời gian build, số trang) vào cuối PLAN.md mục *Nhật ký*. Không sửa code. → `docs(agents): record baseline build`
-- [ ] 🤖 **P0.6** `git push origin main` → `git switch -c dev && git push -u origin dev`.
+- [x] 🤖 **P0.1** Commit `Overview.md`, `CLAUDE.md`, `PLAN.md`. → `docs(agents): add overview, shared agent rules and plan`
+- [x] 🤖 **P0.2** (D7) Thay symlink `.claude/skills/*` bằng thư mục thật (copy từ `.agents/skills/*`), thêm `.agents/` vào `.gitignore`, commit `.claude/skills/`, `.claude/settings.json`, `skills-lock.json`. Kiểm tra: `git ls-files -s .claude/skills | grep -c ^120000` = 0 (không còn symlink). → `chore(agents): vendor taste skills as regular files`
+- [x] 🤖 **P0.3** Thêm `.gitattributes` (`* text=auto eol=lf`; `*.png *.jpg *.webp *.avif *.ico binary`), chạy `git add --renormalize .`, kiểm tra `pnpm biome ci .`. → `chore: enforce lf line endings`
+- [x] 🤖 **P0.4** Tạo khung `prompts/images/` (xem §6): `README.md`, `_TEMPLATE.md`, thư mục `brand/`, `references/`, `assets/` (mỗi thư mục có `.gitkeep`) và `design/references/.gitkeep`. → `docs(assets): add image prompt workflow`
+- [x] 🤖 **P0.5** Baseline: `pnpm install --frozen-lockfile && pnpm build && pnpm test`; ghi kết quả (pass/fail, thời gian build, số trang) vào cuối PLAN.md mục *Nhật ký*. Không sửa code. → `docs(agents): record baseline build`
+- [x] 🤖 **P0.6** `git push origin main` → `git switch -c dev && git push -u origin dev`.
 
 **Xong khi:** remote có `main` + `dev`, skills là file thật, baseline đã ghi. ⛔ Không có cổng — đi tiếp Phase 1 khi §3.1–3.3 đã xong.
 
@@ -388,3 +388,5 @@ Mở prompt → copy mục *Prompt* (+ *Negative prompt*) sang công cụ sinh �
 |---|---|---|
 | 2026-09-27 | — | Tạo `Overview.md`, `CLAUDE.md`, `PLAN.md`. Chờ duyệt. |
 | 2026-09-27 | — | Chốt D1 (vi mặc định không prefix, giữ 5 locale), D2=A, D3=dev, D8 (landing + portfolio + blog SEO), D9 (light/dark). Thêm P5.0 (projects + SEO). Tạo `ORCHESTRATION.md` (chia wave/agent/cổng người) và `design/` (brief + inspiration). |
+| 2026-09-27 | 0 | **Baseline (P0.5)** trên `main` trước khi sửa code — Node 24.21.0, pnpm 10.29.3 (chạy qua `corepack pnpm`, máy chưa có `pnpm` trong PATH). `pnpm install --frozen-lockfile` ✅ 8s · `pnpm build` ✅ 8s, **58 trang**, `astro check` 0 error / 0 warning / 4 hint (unused `getEntry`/`getEntries` ở `blog/index.astro`, `pattern`/`options` ở `vitest.setup.ts`) · `pnpm test` ✅ 24/24 (1 file) · `pnpm biome ci .` trước P0.3: ❌ 54 error (gần hết do CRLF) → sau P0.3: ✅ 0 error, **88 warning** (chủ yếu `noUnusedImports/Variables` false-positive trong frontmatter `.astro` + `noImportantStyles` ở `reset.css`/`base.css`) — xử lý ở Phase 2. |
+| 2026-09-27 | 0 | Wave 0 xong: P0.1–P0.6. Ngoài plan: loại `.claude/` + `skills-lock.json` khỏi Biome (file do công cụ quản lý); commit riêng `style(styles)` format `base.css` (lỗi format có sẵn của template). `git checkout-index -f` không ghi lại working tree CRLF trên Windows → đã chuyển tay CRLF→LF cho file có `w/crlf` (nội dung trùng index). |
