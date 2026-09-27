@@ -19,8 +19,7 @@
 		"check": "astro check && biome check --write .",
 		"astro": "astro",
 		"test": "vitest run",
-		"test:watch": "vitest",
-		"structure": "npx --yes tree-extended -max=5 -max-show-not-empty -gitignore > docs/structure.md && echo '```' >> docs/structure.md && cat docs/structure.md | sed -i '' -e '1i\\\n```plaintext' docs/structure.md && echo '# Project Structure\n' | cat - docs/structure.md > temp && mv temp docs/structure.md"
+		"test:watch": "vitest"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
