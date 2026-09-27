@@ -1,11 +1,11 @@
 {
-	"name": "astro-i18n-cms-starter",
-	"description": "A starter for Astro with i18n support",
-	"version": "3.0.0",
-	"private": false,
+	"name": "meganode",
+	"description": "meganode — scale your ideas. Personal site, portfolio and multilingual blog built with Astro and Sveltia CMS.",
+	"version": "0.1.0",
+	"private": true,
 	"type": "module",
 	"license": "MIT",
-	"homepage": "https://astro-cms-dpv.pages.dev/",
+	"homepage": "https://github.com/harwellz/astro-sveltia",
 	"engines": {
 		"node": ">=20.0.0"
 	},

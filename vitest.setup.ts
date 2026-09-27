@@ -1,19 +1,8 @@
 import { vi } from "vitest";
 
-// Mock import.meta.env
-vi.stubGlobal("import.meta", {
-	env: {
-		LANG: "en", // Default language for tests
-		DEV: true,
-		PROD: false,
-		SSR: true,
-	},
-	glob: vi.fn((pattern, options) => {
-		// Mock implementation for import.meta.glob
-		// This is used in ui.ts to load translation files
-		return {};
-	}),
-});
+// Default language for tests (read by src/i18n via import.meta.env.LANG).
+// vi.stubEnv updates import.meta.env; stubbing the "import.meta" global does not.
+vi.stubEnv("LANG", "en");
 
 // Mock getRelativeLocaleUrl from astro:i18n
 vi.mock("astro:i18n", () => ({

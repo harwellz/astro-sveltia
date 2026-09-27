@@ -3,26 +3,22 @@
 
 import type { Multilingual } from "@/i18n";
 
-export const BRAND_NAME: string | Multilingual = "Astro CMS";
-export const SITE_TITLE: string | Multilingual = "Astro CMS";
+export const BRAND_NAME: string | Multilingual = "meganode";
+export const SITE_TITLE: string | Multilingual = "meganode";
+export const SITE_TAGLINE: string | Multilingual = "scale your ideas";
 
 export const SITE_DESCRIPTION: string | Multilingual = {
-	en: "Weekly tech news digest delivered every Friday, plus a comprehensive catalog of resources for developers and tech enthusiasts.",
-	es: "Resumen semanal de noticias tecnológicas enviado todos los viernes, además de un catálogo completo de recursos útiles para programadores y entusiastas de la tecnología.",
-	ja: "毎週金曜日に配信されるテクノロジーニュースダイジェストと、開発者やテクノロジー愛好家のための包括的なリソースカタログ。",
+	en: "meganode — scale your ideas. Projects and long-form notes on IT hardware and networking, digital marketing, data analytics and web3 building.",
+	es: "meganode — escala tus ideas. Proyectos y artículos sobre hardware y redes, marketing digital, análisis de datos y desarrollo web3.",
+	ja: "meganode — アイデアをスケールさせよう。ITハードウェアとネットワーク、デジタルマーケティング、データ分析、web3開発に関するプロジェクトと記事。",
 	"zh-cn":
-		"每周五发布的技术新闻摘要，以及为开发人员和技术爱好者提供的全面资源目录。",
-	ar: "ملخص أخبار التكنولوجيا الأسبوعي الذي يتم تسليمه كل يوم جمعة، بالإضافة إلى كتالوج شامل من الموارد للمطورين وعشاق التكنولوجيا.",
+		"meganode — 让你的想法规模化。关于 IT 硬件与网络、数字营销、数据分析和 web3 开发的项目与长文。",
+	ar: "meganode — طوّر أفكارك على نطاق واسع. مشاريع ومقالات حول عتاد تقنية المعلومات والشبكات والتسويق الرقمي وتحليل البيانات وتطوير web3.",
 };
 
-export const X_ACCOUNT: string | Multilingual = "@yacosta738";
+export const X_ACCOUNT: string | Multilingual = "@harwellzz";
 
 export const NOT_TRANSLATED_CAUTION: string | Multilingual = {
 	en: "This page is not available in your language.",
 	es: "Esta página no está disponible en tu idioma.",
 };
-
-// Base URLs
-const BASE_URL_LOCAL = "http://localhost:4321";
-const BASE_URL_PROD = "https://astro-cms-dpv.pages.dev";
-export const BASE_URL = import.meta.env.DEV ? BASE_URL_LOCAL : BASE_URL_PROD;
